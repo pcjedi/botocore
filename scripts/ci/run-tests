@@ -70,5 +70,5 @@ if __name__ == "__main__":
 
     cmd = f"uv run {test_runner} {test_args}{test_dirs}"
     print(f"Running {cmd}...")
-    with cd(os.path.join(REPO_ROOT, "tests")):
+    with cd(REPO_ROOT):
         run(cmd, check=True)
