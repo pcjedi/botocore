@@ -39,6 +39,8 @@ if __name__ == "__main__":
         if os.path.isdir("dist") and os.listdir("dist"):
             shutil.rmtree("dist")
         run("uv build --wheel")
+        print(os.listdir())
+        print(os.listdir('dist'))
         wheel_dist = os.listdir("dist")[0]
         package = os.path.abspath(os.path.join('dist', wheel_dist))
         if args.extras:
