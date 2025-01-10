@@ -40,7 +40,7 @@ if __name__ == "__main__":
             shutil.rmtree("dist")
         run("python setup.py bdist_wheel")
         wheel_dist = os.listdir("dist")[0]
-        package = os.path.join('dist', wheel_dist)
+        package = os.path.abspath(os.path.join('dist', wheel_dist))
         if args.extras:
             package = f"\"{package}[{args.extras}]\""
         run(f'uv pip install {package} --resolution lowest')
