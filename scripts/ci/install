@@ -39,7 +39,6 @@ if __name__ == "__main__":
         if os.path.isdir("dist") and os.listdir("dist"):
             shutil.rmtree("dist")
         print(sorted(os.listdir()))
-        print(sorted(os.listdir('dist')))
         run("uv build --wheel")
         print(sorted(os.listdir()))
         print(sorted(os.listdir('dist')))
