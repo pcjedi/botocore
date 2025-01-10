@@ -38,9 +38,11 @@ if __name__ == "__main__":
         run("python scripts/ci/install-dev-deps")
         if os.path.isdir("dist") and os.listdir("dist"):
             shutil.rmtree("dist")
+        print(sorted(os.listdir()))
+        print(sorted(os.listdir('dist')))
         run("uv build --wheel")
-        print(os.listdir())
-        print(os.listdir('dist'))
+        print(sorted(os.listdir()))
+        print(sorted(os.listdir('dist')))
         wheel_dist = os.listdir("dist")[0]
         package = os.path.abspath(os.path.join('dist', wheel_dist))
         if args.extras:
