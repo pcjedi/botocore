@@ -6,7 +6,7 @@
 import argparse
 import os
 from contextlib import contextmanager
-from subprocess import check_call
+from subprocess import check_call, run
 
 _dname = os.path.dirname
 
@@ -23,10 +23,6 @@ def cd(path):
         yield
     finally:
         os.chdir(cwd)
-
-
-def run(command):
-    return check_call(command, shell=True)
 
 
 def process_args(args):
@@ -75,4 +71,4 @@ if __name__ == "__main__":
     cmd = f"uv run {test_runner} {test_args}{test_dirs}"
     print(f"Running {cmd}...")
     with cd(os.path.join(REPO_ROOT, "tests")):
-        run(cmd)
+        run(cmd, check=True)
